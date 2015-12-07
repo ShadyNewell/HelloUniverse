@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "HelloWorld\HelloWorld.csproj", "{355CECC5-E336-488E-92CF-F6A23E43A495}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld.Tests", "HelloWorld.Tests\HelloWorld.Tests.csproj", "{5C551179-7DED-4144-831A-5F69BCDEC73B}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://dc0tfs01:8080/tfs/tpplc_collection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = HelloWorld.Tests\\HelloWorld.Tests.csproj
+		SccProjectName1 = HelloWorld.Tests
+		SccLocalPath1 = HelloWorld.Tests
+		SccProjectUniqueName2 = HelloWorld\\HelloWorld.csproj
+		SccProjectName2 = HelloWorld
+		SccLocalPath2 = HelloWorld
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{355CECC5-E336-488E-92CF-F6A23E43A495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{355CECC5-E336-488E-92CF-F6A23E43A495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{355CECC5-E336-488E-92CF-F6A23E43A495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{355CECC5-E336-488E-92CF-F6A23E43A495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C551179-7DED-4144-831A-5F69BCDEC73B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C551179-7DED-4144-831A-5F69BCDEC73B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C551179-7DED-4144-831A-5F69BCDEC73B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C551179-7DED-4144-831A-5F69BCDEC73B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

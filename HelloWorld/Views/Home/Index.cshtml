@@ -1,0 +1,45 @@
+﻿@model HelloWorld.Models.HomeViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.LabelForModel("Who are you ?")
+                @Html.TextBoxFor(model => model.WhoAmI, new {maxlength = 10})
+
+                @Html.LabelForModel("Halve what ?")
+                @Html.TextBoxFor(model => model.HalveItOriginal, new {maxlength = 3})
+
+                <input type="submit" value ="Do It !"/>
+            }
+        </div>
+        <div class="content-wrapper">
+                @if (Model != null)
+                {                    
+                    if (!string.IsNullOrEmpty(Model.WhoAmI))
+                    {
+                        <text>Hello </text>@Model.WhoAmI
+                        <br />
+                    }
+                    
+                    if (!string.IsNullOrEmpty(Model.HalveItOriginal) && Model.Halves.Count>0)
+                    {
+                        <text>Halving  </text>@Model.HalveItOriginal<text> gives you </text>
+                        foreach(var half in Model.Halves)
+                        {
+                            <br />
+                            @half;
+                            
+                        }
+                    }
+                    
+                    
+                }
+
+        </div>
+    </section>
+}
