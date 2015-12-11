@@ -3,3 +3,7 @@ HelloWorld.v11.suo
 HelloWorld.sln.DotSettings.user
 /bin
 /obj
+*.cache
+*.mdf
+*.ldf
+
