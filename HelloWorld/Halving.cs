@@ -23,6 +23,7 @@ namespace HelloWorld
             }
         }
 
+
         private static void CheckForNonNullHalves(List<double> halves)
         {
             if (halves == null)
