@@ -134,5 +134,50 @@ namespace HelloWorld.Tests
                 Assert.AreEqual(expected, actual);
             }
         }
+
+        [TestMethod]
+        public void SquareOf0Gives0()
+        {
+            // Arrange
+            // Act
+            var result = Halving.SquareIt(0);
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void SquareOfMinus1Gives1()
+        {
+            // Arrange
+            // Act
+            var result = Halving.SquareIt(-1);
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void SquareOf10Gives100()
+        {
+            // Arrange
+            // Act
+            var result = Halving.SquareIt(10);
+
+            // Assert
+            Assert.AreEqual(100, result);
+        }
+
+        [TestMethod]
+        public void SquareOf99999999999Gives1864711849423024129()
+        {
+            // Arrange
+            // Act
+            var result = Halving.SquareIt(99999999999);
+
+            // Assert
+            Assert.AreEqual(1864711849423024129, result);
+        }
+
     }
 }
