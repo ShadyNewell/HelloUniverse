@@ -23,6 +23,10 @@ namespace HelloWorld
             }
         }
 
+        public static long SquareIt(long toBeSquared)
+        {
+            return toBeSquared * toBeSquared;
+        }
 
         private static void CheckForNonNullHalves(List<double> halves)
         {
