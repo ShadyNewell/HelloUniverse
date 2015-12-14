@@ -14,7 +14,7 @@ namespace HelloWorld
 
             double thisHalf;
 
-            thisHalf = original / 2.0;
+            thisHalf = original / 2.000;
 
             if (thisHalf > 0.001)
             {                
