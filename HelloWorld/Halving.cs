@@ -30,6 +30,7 @@ namespace HelloWorld
 
         private static void CheckForNonNullHalves(List<double> halves)
         {
+
             if (halves == null)
             {
                 throw new ArgumentNullException("halves", "halves must be assigned before use of this method");
