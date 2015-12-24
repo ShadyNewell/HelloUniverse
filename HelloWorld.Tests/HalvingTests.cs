@@ -136,6 +136,26 @@ namespace HelloWorld.Tests
         }
 
         [TestMethod]
+        public void OriginalOf0ProduceHalves()
+        {
+            // Arrange
+            halves = new List<double>();
+            original = 0;
+            var expectHalves = new List<double>() {};
+
+            // Act
+            Halving.HalfIt(original, ref halves);
+
+            // Assert
+            for (var index = 0; index < expectHalves.Count; index++)
+            {
+                var actual = halves[index];
+                var expected = expectHalves[index];
+                Assert.AreEqual(expected, actual);
+            }
+        }
+
+        [TestMethod]
         public void OriginalOf2ProduceHalves()
         {
             // Arrange
