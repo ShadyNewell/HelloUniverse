@@ -151,7 +151,7 @@ namespace HelloWorld.Tests
         {
             // Arrange
             // Act
-            var result = Halving.SquareIt(-1);
+            long result = Halving.SquareIt(-1);
 
             // Assert
             Assert.AreEqual(1, result);
