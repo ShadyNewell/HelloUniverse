@@ -4,11 +4,28 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HelloWorld.Models;
+using Microsoft.Practices.Unity;
 
 namespace HelloWorld.Controllers
 {
     public class HomeController : Controller
     {
+        private IHalving halving;
+
+        public HomeController() 
+        {
+            var unityContainer = new UnityContainer();
+            unityContainer.RegisterType<IHalving, Halving>();
+            unityContainer.RegisterType<IDoSomethingElse, DoSomethingElse>();
+            
+            this.halving = unityContainer.Resolve<IHalving>();
+        }
+
+        public HomeController(IHalving halving)
+        {
+            this.halving = halving;
+        }
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -23,14 +40,11 @@ namespace HelloWorld.Controllers
             double halveItOriginal = 0;
             if (double.TryParse(viewModel.HalveItOriginal, out halveItOriginal))
             {
-                Halving.HalfIt(halveItOriginal, ref halves);
+                this.halving.HalfIt(halveItOriginal, halves);
 
                 viewModel.Halves = halves;
             }
             return View(viewModel);
         }
-
-
-
     }
 }

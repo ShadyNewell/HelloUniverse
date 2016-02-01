@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using HelloWorld;
 
 namespace HelloWorld.Tests
 {
@@ -13,6 +9,7 @@ namespace HelloWorld.Tests
     {
         double original;
         List<double> halves;
+        readonly Halving halving = new Halving(null);
                 
         [TestMethod]
         public void UnassignedHalvesRaisesError()
@@ -23,7 +20,7 @@ namespace HelloWorld.Tests
             // Act
             try
             {
-                Halving.HalfIt(original, ref halves);
+                halving.HalfIt(original, halves);
                 Assert.Fail("An exception should have been thrown");
             }
             catch (ArgumentNullException ae)
@@ -47,7 +44,7 @@ namespace HelloWorld.Tests
             original = 0;
             
             // Act
-            Halving.HalfIt(original, ref halves);
+            halving.HalfIt(original, halves);
 
             // Assert
             Assert.AreEqual(0, halves.Count);            
@@ -61,21 +58,21 @@ namespace HelloWorld.Tests
             original = 1;
 
             // Act
-            Halving.HalfIt(original, ref halves);
+            halving.HalfIt(original, halves);
 
             // Assert
             Assert.AreEqual(0.5, halves[0]);
         }
 
         [TestMethod]
-        public void HalvingStopsAtPoint001()
+        public void halvingStopsAtPoint001()
         {
             // Arrange
             halves = new List<double>();
             original = 0.002;
 
             // Act
-            Halving.HalfIt(original, ref halves);
+            halving.HalfIt(original, halves);
 
             // Assert
             Assert.AreEqual(0, halves.Count);
@@ -89,7 +86,7 @@ namespace HelloWorld.Tests
             original = 10;
 
             // Act
-            Halving.HalfIt(original, ref halves);
+            halving.HalfIt(original, halves);
 
             // Assert
             Assert.IsTrue(halves.Count > 5);
@@ -104,7 +101,7 @@ namespace HelloWorld.Tests
             var expectHalves = new List<double>() { 5.0, 2.5, 1.25, 0.625, 0.3125, 0.15625, 0.078125, 0.0390625, 0.01953125, 0.009765625, 0.0048828125, 0.00244140625, 0.001220703125};
 
             // Act
-            Halving.HalfIt(original, ref halves);
+            halving.HalfIt(original, halves);
 
             // Assert
             for (var index = 0; index < expectHalves.Count; index++)
@@ -124,7 +121,7 @@ namespace HelloWorld.Tests
             var expectHalves = new List<double>() { 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.001953125};
 
             // Act
-            Halving.HalfIt(original, ref halves);
+            halving.HalfIt(original, halves);
 
             // Assert
             for (var index = 0; index < expectHalves.Count; index++)
@@ -144,7 +141,7 @@ namespace HelloWorld.Tests
             var expectHalves = new List<double>() {};
 
             // Act
-            Halving.HalfIt(original, ref halves);
+            halving.HalfIt(original, halves);
 
             // Assert
             for (var index = 0; index < expectHalves.Count; index++)
@@ -184,7 +181,7 @@ namespace HelloWorld.Tests
             var expectHalves = new List<double>() { 2, 1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.001953125 };
 
             // Act
-            Halving.HalfIt(original, ref halves);
+            halving.HalfIt(original, halves);
 
             // Assert
             for (var index = 0; index < expectHalves.Count; index++)
@@ -200,7 +197,7 @@ namespace HelloWorld.Tests
         {
             // Arrange
             // Act
-            var result = Halving.SquareIt(0);
+            var result = halving.SquareIt(0);
 
             // Assert
             Assert.AreEqual(0, result);
@@ -211,7 +208,7 @@ namespace HelloWorld.Tests
         {
             // Arrange
             // Act
-            long result = Halving.SquareIt(-1);
+            long result = halving.SquareIt(-1);
 
             // Assert
             Assert.AreEqual(1, result);
@@ -222,7 +219,7 @@ namespace HelloWorld.Tests
         {
             // Arrange
             // Act
-            var result = Halving.SquareIt(10);
+            var result = halving.SquareIt(10);
 
             // Assert
             Assert.AreEqual(100, result);
@@ -233,7 +230,7 @@ namespace HelloWorld.Tests
         {
             // Arrange
             // Act
-            var result = Halving.SquareIt(99999999999);
+            var result = halving.SquareIt(99999999999);
 
             // Assert
             Assert.AreEqual(1864711849423024129, result);

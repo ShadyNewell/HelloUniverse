@@ -1,40 +1,66 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Security.Cryptography.X509Certificates;
+using Microsoft.Ajax.Utilities;
 
 namespace HelloWorld
 {
-    public static class Halving
+    public interface IHalving
     {
-        public static void HalfIt(double original, ref List<double> halves)
+        void HalfIt(double original, List<double> halves);
+        long SquareIt(long toBeSquared);
+    }
+
+    public interface IDoSomethingElse
+    {
+        string CallMe();
+    }
+
+    public class Halving : IHalving
+    {
+        private readonly IDoSomethingElse DoSomethingElse;
+
+        public Halving(IDoSomethingElse doSomethingElse)
+        {
+            this.DoSomethingElse = doSomethingElse;
+        }
+
+        public void HalfIt(double original,  List<double> halves)
         {            
             CheckForNonNullHalves(halves);
 
-            double thisHalf;
+            var called = this.DoSomethingElse.CallMe();
 
-            thisHalf = original / 2.000;
+            var thisHalf = original / 2.000;
 
             if (thisHalf > 0.001)
             {                
                 halves.Add(thisHalf);
-                HalfIt(thisHalf, ref halves);
+                HalfIt(thisHalf, halves);
             }
         }
 
-        public static long SquareIt(long toBeSquared)
+        public long SquareIt(long toBeSquared)
         {
+            var called = this.DoSomethingElse.CallMe();
+
             return toBeSquared * toBeSquared;
         }
 
-        private static void CheckForNonNullHalves(List<double> halves)
+        private void CheckForNonNullHalves(List<double> halves)
         {
-
             if (halves == null)
             {
                 throw new ArgumentNullException("halves", "halves must be assigned before use of this method");
             }
+        }
+    }
+
+    public class DoSomethingElse : IDoSomethingElse
+    {
+        public string CallMe()
+        {
+            return "I have been called";
         }
     }
 }
