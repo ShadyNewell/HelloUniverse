@@ -9,7 +9,7 @@ namespace HelloWorld.Tests
     {
         double original;
         List<double> halves;
-        readonly Halving halving = new Halving(null);
+        readonly Halving halving = new Halving(new DoSomethingElse());
                 
         [TestMethod]
         public void UnassignedHalvesRaisesError()
