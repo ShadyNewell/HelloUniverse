@@ -29,6 +29,7 @@ namespace HelloWorld.Tests.Controllers
 
 
         [TestMethod]
+        [Ignore]
         public void PostIndex()
         {
             // Arrange
