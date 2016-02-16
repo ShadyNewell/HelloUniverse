@@ -37,6 +37,8 @@ namespace HelloWorld.Tests.Controllers
             Mock<IHalving> mockHalving = new Mock<IHalving>();
             mockHalving.Setup(t => t.HalfIt(20, halves));
 
+
+
             HomeController controller = new HomeController(mockHalving.Object);
              
             HomeViewModel viewModel = new HomeViewModel()
