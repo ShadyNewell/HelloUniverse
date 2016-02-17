@@ -236,5 +236,11 @@ namespace HelloWorld.Tests
             Assert.AreEqual(1864711849423024129, result);
         }
 
+        [TestMethod]
+        public void FailingTest()
+        {
+            // Assert
+            Assert.AreEqual(1, 0);
+        }
     }
 }
