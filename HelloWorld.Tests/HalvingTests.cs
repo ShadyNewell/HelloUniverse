@@ -21,18 +21,10 @@ namespace HelloWorld.Tests
             try
             {
                 halving.HalfIt(original, halves);
-                Assert.Fail("An exception should have been thrown");
             }
             catch (ArgumentNullException ae)
             {
                 Assert.AreEqual("halves must be assigned before use of this method\r\nParameter name: halves", ae.Message);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail(
-                     string.Format("Unexpected exception of type {0} caught: {1}",
-                                    e.GetType(), e.Message)
-                );
             }
         }
         
@@ -138,18 +130,12 @@ namespace HelloWorld.Tests
             // Arrange
             halves = new List<double>();
             original = 0;
-            var expectHalves = new List<double>() {};
-
+            
             // Act
             halving.HalfIt(original, halves);
 
             // Assert
-            for (var index = 0; index < expectHalves.Count; index++)
-            {
-                var actual = halves[index];
-                var expected = expectHalves[index];
-                Assert.AreEqual(expected, actual);
-            }
+            Assert.AreEqual(halves.Count, 0);
         }
 
         [TestMethod]
@@ -171,8 +157,20 @@ namespace HelloWorld.Tests
                 0.00390625,
                 0.001953125
             };
+
+            // Act
+            halving.HalfIt(original, halves);
+
+            // Assert
+            for (var index = 0; index < expectHalves.Count; index++)
+            {
+                var actual = halves[index];
+                var expected = expectHalves[index];
+                Assert.AreEqual(expected, actual);
+            }
         }
 
+        [TestMethod]
         public void OriginalOf4ProduceHalves()
         {
             // Arrange

@@ -29,16 +29,13 @@ namespace HelloWorld.Tests.Controllers
 
 
         [TestMethod]
-        [Ignore]
         public void PostIndex()
         {
             // Arrange
             var halves = new List<double>() {10, 5, 2.5};
             Mock<IHalving> mockHalving = new Mock<IHalving>();
             mockHalving.Setup(t => t.HalfIt(20, halves));
-
-
-
+            
             HomeController controller = new HomeController(mockHalving.Object);
              
             HomeViewModel viewModel = new HomeViewModel()
